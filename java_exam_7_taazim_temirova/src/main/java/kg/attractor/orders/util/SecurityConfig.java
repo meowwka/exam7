@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // после авторизации пользователя
         http.authorizeRequests()
                 .antMatchers("/restaurants/**").permitAll()
-                .antMatchers("/cuatomers/**").permitAll()
+                .antMatchers("/customers/**").permitAll()
                 .antMatchers("/orders/**").permitAll();
 
         // Правило 2: Разрешить всё остальные запросы

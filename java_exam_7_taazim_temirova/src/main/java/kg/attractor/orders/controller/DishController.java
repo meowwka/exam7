@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
-@RequestMapping("dishes")
+@RequestMapping("/dishes")
 public class DishController {
     @Autowired
     private DishService ds;

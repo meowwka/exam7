@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
-@RequestMapping("customers")
+@RequestMapping("/customers")
 public class CustomerController {
     @Autowired
     private CustomerService cs;
