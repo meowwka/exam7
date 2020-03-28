@@ -14,6 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.aggregation.BooleanOperators;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ import static java.util.stream.Collectors.toList;
 
 @Configuration
 public class InitDataBase {
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     private final Random r = new Random();
     @Bean
     CommandLineRunner init(CustomerRepo cr, DishRepo dr, OrderRepo or, RestaurantRepo rr){
@@ -41,7 +43,7 @@ public class InitDataBase {
 //                    .collect(toList());
 //            cr.saveAll(customers);
             for(int i = 0; i < 20; i++){
-                Customer customer = new Customer(GenerateData.randomPersonName(), GenerateData.randomEmail());
+                Customer customer = new Customer(GenerateData.randomPersonName(), GenerateData.randomEmail() , encoder.encode("password"));
                 customers.add(customer);
             }
             cr.saveAll(customers);

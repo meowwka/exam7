@@ -5,10 +5,8 @@ import kg.attractor.orders.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
@@ -28,4 +26,10 @@ public class OrderController {
         return os.findByCustomerID(customerId,pageable);
 
     }
+
+//    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public OrderDTO addOrder(@RequestBody OrderDTO orderDTO){
+//        return  os.
+//
+//    }
 }
