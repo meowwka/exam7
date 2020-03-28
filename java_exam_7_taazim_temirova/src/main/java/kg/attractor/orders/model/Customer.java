@@ -1,5 +1,7 @@
 package kg.attractor.orders.model;
 
+import kg.attractor.orders.util.GenerateData;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,4 +16,15 @@ public class Customer {
     private String name;
     private String email;
 
+    public Customer(String name, String email){
+        this.email = email;
+        this.name = name;
+    }
+
+//    public static Customer random() {
+//        return builder()
+//                .email(GenerateData.randomEmail())
+//                .name(GenerateData.randomPersonName())
+//                .build();
+//    }
 }

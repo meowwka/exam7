@@ -1,4 +1,4 @@
-package kg.attractor.orders.data;
+package kg.attractor.orders.util;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -38,14 +38,14 @@ public final class GenerateData {
     private static List<PlaceName> placeNames;
 
     static {
-        personNames = readStrings(Paths.get("data", "list-person"));
-        domains = readStrings(Paths.get("data", "list-domains"));
-        placeNames = readPlaces(Paths.get("data", "list-places"));
-        dishNames = readDishes(Paths.get("data", "list-foods"));
+        personNames = readStrings(Paths.get( "src/main/resources/static","list-person"));
+        domains = readStrings(Paths.get( "src/main/resources/static","list-domains"));
+        placeNames = readPlaces(Paths.get("src/main/resources/static" ,"list-places"));
+        dishNames = readDishes(Paths.get("src/main/resources/static", "list-foods"));
     }
 
     public static String randomEmail() {
-        return randomPersonName() + "@" + domains.get(r.nextInt(domains.size()));
+        return randomPersonName() + "" + domains.get(r.nextInt(domains.size()));
     }
 
     public static String randomPersonName() {

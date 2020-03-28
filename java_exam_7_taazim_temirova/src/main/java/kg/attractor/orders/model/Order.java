@@ -1,5 +1,6 @@
 package kg.attractor.orders.model;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -18,4 +19,11 @@ public class Order {
     @DBRef
     private Dish dish;
     private LocalDateTime orderDate;
+
+    public Order(Customer customer, Dish dish){
+        this.customer = customer;
+        this.dish=dish;
+        this.orderDate = LocalDateTime.now();
+
+    }
 }
