@@ -21,10 +21,5 @@ public class Customer {
         this.name = name;
     }
 
-//    public static Customer random() {
-//        return builder()
-//                .email(GenerateData.randomEmail())
-//                .name(GenerateData.randomPersonName())
-//                .build();
-//    }
+
 }

@@ -15,11 +15,13 @@ import java.util.List;
 public class RestaurantDTO {
     private String title;
     private  String description;
+//    private String dishes;
 
 
     public static RestaurantDTO from(Restaurant r){
         return builder().description(r.getDescription())
                 .title(r.getTitle())
+//                .dishes(r.getDish().getDishTitle())
                 .build();
     }
 }

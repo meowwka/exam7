@@ -17,10 +17,15 @@ public class Restaurant {
     private String id = UUID.randomUUID().toString();
     private String title;
     private  String description;
+//    private Dish dish;
 
-    public  Restaurant(String title, String description){
+    public  Restaurant(String title, String description
+//            , Dish dish
+    ){
         this.title=title;
         this.description=description;
+//        this.dish= dish;
+
 
     }
 

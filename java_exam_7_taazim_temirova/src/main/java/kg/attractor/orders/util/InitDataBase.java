@@ -25,9 +25,6 @@ import static java.util.stream.Collectors.toList;
 @Configuration
 public class InitDataBase {
     private final Random r = new Random();
-
-
-
     @Bean
     CommandLineRunner init(CustomerRepo cr, DishRepo dr, OrderRepo or, RestaurantRepo rr){
         return (args) ->{
@@ -35,6 +32,7 @@ public class InitDataBase {
             dr.deleteAll();
             or.deleteAll();
             rr.deleteAll();
+            List<Dish> dishes = new ArrayList<>();
 
             List<Restaurant> restaurants = new ArrayList<>();
 
@@ -42,25 +40,26 @@ public class InitDataBase {
 //            Stream.generate(Customer::random)
 //                    .collect(toList());
 //            cr.saveAll(customers);
-            for(int i = 0; i < 10; i++){
+            for(int i = 0; i < 20; i++){
                 Customer customer = new Customer(GenerateData.randomPersonName(), GenerateData.randomEmail());
                 customers.add(customer);
             }
             cr.saveAll(customers);
 
-            for(int i = 0; i < r.nextInt(10)+2; i++){
+            for(int i = 0; i < 15; i++){
                 GenerateData.PlaceName placeName = GenerateData.randomPlace();
+//                GenerateData.DishName dishName = GenerateData.randomDish();
+//                Dish dish = dishes.get(r.nextInt(dishes.size()));
+
                 Restaurant restaurant = new Restaurant(placeName.name, placeName.description);
                 restaurants.add(restaurant);
             }
             rr.saveAll(restaurants);
 
-            List<Dish> dishes = new ArrayList<>();
-            int dishesAmount = r.nextInt(20)+5;
-            for(int i = 0; i < dishesAmount; i ++){
+            for(int i = 0; i < 20; i ++){
                 GenerateData.DishName dishName = GenerateData.randomDish();
                 Restaurant restaurantRandom = restaurants.get(r.nextInt(restaurants.size()));
-                int price = r.nextInt(100)+50;
+                int price = r.nextInt(500)+50;
                 Dish dish = new Dish(restaurantRandom, dishName.name.trim(), dishName.type.trim(), price);
                 dishes.add(dish);
             }

@@ -45,7 +45,7 @@ public final class GenerateData {
     }
 
     public static String randomEmail() {
-        return randomPersonName() + "" + domains.get(r.nextInt(domains.size()));
+        return randomPersonName() + domains.get(r.nextInt(domains.size()));
     }
 
     public static String randomPersonName() {
